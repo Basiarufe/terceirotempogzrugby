@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Aportaciones</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GESTIÓN DE APORTACIONES</h1>
+    </header>
+    <nav>
+      <button onclick="showTab('botes-activos')">BOTES ACTIVOS</button>
+      <button onclick="showTab('crear-bote')">CREAR BOTE</button>
+      <button onclick="showTab('historico-botes')">HISTÓRICO DE BOTES</button>
+      <button onclick="showTab('xogadores-staff')">XOGADORES/STAFF</button>
+    </nav>
+    <main>
+      <div id="botes-activos" class="tab-content active">
+        <h2>BOTES ACTIVOS</h2>
+        <div id="contribution-dialog-space"></div> <!-- Espacio para las casillas de aporte -->
+        <div id="active-botes-list">
+          <!-- Aquí se agregarán los botes activos -->
+        </div>
+      </div>
+      <div id="crear-bote" class="tab-content">
+        <h2>CREAR BOTE</h2>
+        <form id="create-bote-form">
+          <label for="bote-name">Nome Bote:</label>
+          <input type="text" id="bote-name" required>
+          <label for="bote-date">Data:</label>
+          <input type="date" id="bote-date" required>
+          <label for="bote-members">Engadir membro:</label>
+          <select id="new-member" onchange="addMemberToBote()">
+            <option value="">Selecciona membro</option>
+            <option value="todos">Todos</option>
+          </select>
+          <div id="members-list">
+            <!-- Lista de membros -->
+          </div>
+          <button type="submit">CREAR BOTE</button>
+        </form>
+      </div>
+      <div id="historico-botes" class="tab-content">
+        <h2>HISTÓRICO DE BOTES</h2>
+        <div id="historical-botes-list">
+          <!-- Aquí se agregarán los botes históricos -->
+        </div>
+      </div>
+      <div id="xogadores-staff" class="tab-content">
+        <h2>XOGADORES/STAFF</h2>
+        <form id="add-member-form">
+          <label for="member-name">Nome:</label>
+          <input type="text" id="member-name" required>
+          <button type="button" onclick="addMember()">AÑADIR</button>
+        </form>
+        <div id="staff-members-list">
+          <!-- Lista de xogadores/staff -->
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
